@@ -3,6 +3,9 @@
   email = jeff.szusz@gmail.com
   username = jeffszusz
 
+[includeIf "gitdir:~/work/"]
+    path = ~/.gitconfig-work
+
 [core]
   editor = nvim
   excludesfile = /Users/jeffszusz/.gitignore_global
