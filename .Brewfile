@@ -1,0 +1,24 @@
+# CLI tools
+
+brew "git"
+brew "yadm"
+brew "antidote"
+brew "htop"
+brew "ranger" 
+brew "the_silver_searcher"
+brew "bat"
+brew "tig"
+brew "zoxide"
+brew "fzf""
+brew "tldr"
+brew "dtrx" 
+brew "nvm"
+brew "eugene-babichenko/fixit/fixit"
+
+brew "neovim"
+brew "ripgrep"
+brew "fd"
+brew "lazygit"
+brew "imagemagick"
+brew "tectonic"
+

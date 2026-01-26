@@ -2,7 +2,7 @@
 
 install homebrew, then brew install:
 
-- git yadm antidote the_silver_searcher bat tig zoxide fzf tldr nvm dtrx
+- git yadm antidote htop ranger the_silver_searcher bat tig zoxide fzf tldr dtrx nvm
 - eugene-babichenko/fixit/fixit
 
 
