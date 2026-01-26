@@ -1,0 +1,23 @@
+# zsh plugins
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-completions
+zsh-users/zsh-history-substring-search
+
+# prompt theme
+romkatv/powerlevel10k
+
+# Oh-my-zsh dependency management
+getantidote/use-omz
+
+# Make Zsh more featureful
+# Git status is faster
+# History and other enhancements
+# See: https://github.com/ohmyzsh/ohmyzsh/tree/master/lib
+ohmyzsh/ohmyzsh path:lib
+
+# oh-my-zsh plugins
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/node
+ohmyzsh/ohmyzsh path:plugins/npm
+
