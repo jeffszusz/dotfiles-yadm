@@ -48,5 +48,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$(brew --prefix nvm)/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
 
 
-
 source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
+
+# Source all files in a host-specific directory
+HOST_CONFIG_DIR=~/.zsh/hosts/$HOST
+if [ -d "$HOST_CONFIG_DIR" ]; then
+  for file in "$HOST_CONFIG_DIR"/*; do
+    if [ -f "$file" ]; then
+      source "$file"
+    fi
+  done
+fi
+

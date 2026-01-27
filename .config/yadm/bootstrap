@@ -17,4 +17,15 @@ if [ "$system_type" = "Darwin" ]; then
 
 fi
 
-echo "Remember to >>  npm install -g @mermaid-js/mermaid-cli  << for mermaid support in nvim"
+echo "Remember to install mermaid support for nvim:"
+echo ""
+echo "npm install -g @mermaid-js/mermaid-cli"
+echo ""
+echo ""
+echo "Remember to install Tmux Plugin Manager:"
+echo ""
+echo "git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm"
+echo ""
+echo ""
+echo "Remember to install safe-chain:"
+echo "curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh"
