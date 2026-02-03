@@ -1,3 +1,6 @@
+# bind up arrow for history search - must be before antitode loads plugins
+export ZSH_FZF_HISTORY_SEARCH_BIND="^[[A"
+
 # source antidote
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 
@@ -19,9 +22,6 @@ fi
 # enable vim keybinds
 bindkey -v
 
-# bind k and j for VI mode
-# bindkey -M vicmd 'k' history-substring-search-up
-# bindkey -M vicmd 'j' history-substring-search-down
 
 # set nvim as default editor
 export EDITOR=nvim
@@ -47,6 +47,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$(brew --prefix nvm)/nvm.sh" ] && \. "$(brew --prefix nvm)/nvm.sh"
 [ -s "$(brew --prefix nvm)/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
 
+# add ~/.local/bin to path
+export PATH="$HOME/.local/bin:$PATH"
 
 source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
 

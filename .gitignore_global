@@ -3,3 +3,4 @@ tmux*.log
 .DS_Store
 docker_rsa
 .vscode
+.sdkmanrc

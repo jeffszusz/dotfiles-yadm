@@ -2,7 +2,8 @@
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-completions
-zsh-users/zsh-history-substring-search
+# zsh-users/zsh-history-substring-search
+joshskidmore/zsh-fzf-history-search
 
 # prompt theme
 romkatv/powerlevel10k
