@@ -32,6 +32,9 @@ alias vim="nvim"
 # use bat instead of cat
 alias cat="bat"
 
+# wrap ssh in kitten
+alias ssh="kitty +kitten ssh"
+
 # better 'cd' functionality
 eval "$(zoxide init --cmd cd zsh)"
 
