@@ -25,6 +25,7 @@ CONDENSING FACT FROM THE VAPOR OF NUANCE
 
 
 ]],
+          -- Banner made with https://manytools.org/hacker-tools/ascii-banner/
         },
       },
     },
