@@ -17,6 +17,8 @@ if [ "$system_type" = "Darwin" ]; then
 
 fi
 
+echo ""
+echo ""
 echo "Remember to install mermaid support for nvim:"
 echo ""
 echo "npm install -g @mermaid-js/mermaid-cli"
@@ -29,3 +31,7 @@ echo ""
 echo ""
 echo "Remember to install safe-chain:"
 echo "curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh"
+echo ""
+echo ""
+echo "Remember to install copilot CLI:\n\n"
+echo "npm install -g @github/copilot"
