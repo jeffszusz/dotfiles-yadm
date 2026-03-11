@@ -56,7 +56,7 @@ export PATH="$HOME/.local/bin:$PATH"
 source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
 
 # Source all files in a host-specific directory
-HOST_CONFIG_DIR=~/.zsh/hosts/$HOST
+HOST_CONFIG_DIR=~/.zsh/host
 if [ -d "$HOST_CONFIG_DIR" ]; then
   for file in "$HOST_CONFIG_DIR"/*; do
     if [ -f "$file" ]; then
