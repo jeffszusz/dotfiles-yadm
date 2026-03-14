@@ -24,3 +24,6 @@ brew "tectonic"
 
 tap "eugene-babichenko/fixit"
 brew "eugene-babichenko/fixit/fixit"
+
+tap "anomalyco/tap"
+brew "opencode"
