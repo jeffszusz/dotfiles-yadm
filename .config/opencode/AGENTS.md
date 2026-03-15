@@ -18,7 +18,9 @@
 
 **TypeScript types should be helpful, not ceremonial.** Let TypeScript infer types where it can do so unambiguously. Add explicit annotations when they genuinely aid readability, catch real mistakes, or document a non-obvious contract. If an annotation is redundant with what TypeScript would infer anyway, omit it. Push back on over-annotation and under-annotation equally.
 
-**Prefer functional patterns** — pure functions, immutability, and composition where they make sense. Classes and mutation are fine when a library requires them (e.g. Lit web components, Overmind effects) or when they're genuinely the clearest solution.
+**Prefer functional patterns** — pure functions, immutability, and composition where they make sense. Classes and mutation are fine when a library requires them (e.g. Lit web components) or when they're genuinely the clearest solution.
+
+**No trailing semicolons in TypeScript** — omit them from statements (e.g. `const x = 1` not `const x = 1;`)
 
 ## Testing
 
