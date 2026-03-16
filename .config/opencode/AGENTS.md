@@ -46,6 +46,18 @@
 
 Primary languages are **TypeScript and JavaScript**. Python is acceptable when it's the right tool. For anything requiring compiled native code, prefer **Rust** over C or C++.
 
+## Dotfiles
+
+Global configuration files (`~/.config/`, `~/.zshrc`, etc.) are managed with **yadm** — use `yadm` commands instead of plain `git` when working with dotfiles.
+
+Files that differ between machines use yadm's **alternates** system with a `##class.CLASSNAME` suffix. This machine has `local.class = work`. The personal laptop uses `local.class = personal`. After adding or modifying alternate files, run `yadm alt` to update symlinks.
+
+- When editing a config file that is a symlink, edit the `##class.work` variant directly rather than the symlink target.
+- When adding a new config file that needs to differ between machines, create both `##class.work` and `##class.personal` variants, add both to yadm, and run `yadm alt`.
+- Files that are identical across machines are tracked as plain files with no suffix.
+
+Current files using alternates: `~/.config/opencode/opencode.json` and the 5 agent files with per-machine model config (`code-reviewer.md`, `debugger.md`, `deep-thinker.md`, `git-assistant.md`, `state-architect.md`).
+
 ## Git Branching
 
 For small changes and early-stage projects, committing directly to `main` is fine. For large changes on mature projects, use feature branches. When in doubt, ask.
