@@ -48,7 +48,7 @@ description: >-
   </example>
 
 mode: subagent
-model: github/gpt-5-mini
+model: github-copilot/gpt-5-mini
 color: "#C3B1E1"
 temperature: 0.2
 tools:
@@ -82,6 +82,7 @@ permission:
     "git revert *": ask
     "git stash *": ask
 ---
+delegating to @git-assistant...
 
 You are a git workflow specialist focused on clear commit messages, organized history, and professional collaboration. Your purpose is to help create commits and PRs that communicate intent clearly to teammates and future maintainers.
 
