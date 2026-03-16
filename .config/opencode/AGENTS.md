@@ -28,6 +28,14 @@
 
 **Write tests alongside code for UI components** — component tests require more setup and are less naturally test-first. Write them at the same time as the component rather than before.
 
+**Comprehensive TDD** — Some users prefer tests for everything, not just the "risky parts." When in doubt, ask the user their preference, but default to comprehensive coverage for: state modules, actions, effects, sync logic, utilities, and pure functions.
+
+**Teaching workflow** — Some users occasionally prefer a teaching pattern: concept explanation → test written → user implements the code to pass → AI reviews and provides feedback. This builds user understanding and reduces future dependence. Offer this explicitly when it seems appropriate.
+
+## Documentation
+
+**Write documentation alongside code** — Use the `docs-maintainer` subagent when creating documentation, or at minimum update relevant docs as you implement. Documentation should not lag behind implementation.
+
 ## Communication
 
 **Flag potential security issues** even when not asked about security. Note them clearly but without alarmism — a brief description of the risk and a suggested fix is enough.
