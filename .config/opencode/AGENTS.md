@@ -56,7 +56,7 @@ Files that differ between machines use yadm's **alternates** system with a `##cl
 - When adding a new config file that needs to differ between machines, create both `##class.work` and `##class.personal` variants, add both to yadm, and run `yadm alt`.
 - Files that are identical across machines are tracked as plain files with no suffix.
 
-Current files using alternates: `~/.config/opencode/opencode.json` and the 7 agent files with per-machine model config (`code-reviewer.md`, `debugger.md`, `deep-thinker.md`, `git-assistant.md`, `state-architect.md`, `researcher.md`).
+Current files using alternates: `~/.config/opencode/opencode.json` and the 10 agent files with per-machine model config (`code-reviewer.md`, `debugger.md`, `deep-thinker.md`, `docs-maintainer.md`, `git-assistant.md`, `refactorer.md`, `state-architect.md`, `researcher.md`, `test-writer.md`).
 
 ---
 
@@ -77,18 +77,26 @@ Current files using alternates: `~/.config/opencode/opencode.json` and the 7 age
   - Be sure this list always reflects the current set of agents with alternates (add new ones here):
 
     - `~/.config/opencode/opencode.json`
+    - `~/.config/opencode/opencode.json##class.work`
+    - `~/.config/opencode/opencode.json##class.personal`
     - `~/.config/opencode/agent/code-reviewer.md##class.work`
     - `~/.config/opencode/agent/code-reviewer.md##class.personal`
     - `~/.config/opencode/agent/debugger.md##class.work`
     - `~/.config/opencode/agent/debugger.md##class.personal`
     - `~/.config/opencode/agent/deep-thinker.md##class.work`
     - `~/.config/opencode/agent/deep-thinker.md##class.personal`
+    - `~/.config/opencode/agent/docs-maintainer.md##class.work`
+    - `~/.config/opencode/agent/docs-maintainer.md##class.personal`
     - `~/.config/opencode/agent/git-assistant.md##class.work`
     - `~/.config/opencode/agent/git-assistant.md##class.personal`
+    - `~/.config/opencode/agent/refactorer.md##class.work`
+    - `~/.config/opencode/agent/refactorer.md##class.personal`
     - `~/.config/opencode/agent/state-architect.md##class.work`
     - `~/.config/opencode/agent/state-architect.md##class.personal`
     - `~/.config/opencode/agent/researcher.md##class.work`
     - `~/.config/opencode/agent/researcher.md##class.personal`
+    - `~/.config/opencode/agent/test-writer.md##class.work`
+    - `~/.config/opencode/agent/test-writer.md##class.personal`
 
 ## Git Branching
 

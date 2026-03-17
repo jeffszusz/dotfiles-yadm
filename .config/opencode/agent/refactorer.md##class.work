@@ -45,6 +45,7 @@ description: >-
   </example>
 
 mode: subagent
+model: github-copilot/claude-sonnet-4.6
 color: "#FFD8B1"
 temperature: 0.2
 ---

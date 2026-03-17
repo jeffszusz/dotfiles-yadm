@@ -21,6 +21,7 @@ description: >-
   properly" <commentary> New code exists without accompanying documentation;
   proactive documentation is needed. </commentary> </example>
 mode: subagent
+model: github-copilot/claude-sonnet-4.6
 color: "#FFF4C1"
 tools:
   bash: false

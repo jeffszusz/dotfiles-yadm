@@ -4,10 +4,9 @@ description: >-
   commit messages, or drafting pull requests. This agent reads diffs, summarizes
   changes, and helps create professional commit messages and PR descriptions.
 
-  This agent should be invoked proactively by the primary agent at the completion
-  of a logical unit of work (a feature, bugfix, or multi-step task) when meaningful
-  file changes have been made. It will assess the changes, draft a commit message,
-  and ask the user whether to commit.
+This agent should be invoked proactively by the primary agent at the completion
+of a logical unit of work (feature, bugfix, multi-step task)—including meaningful changes to dotfiles (such as yadm-tracked files, agent alternates in ~/.config/, or other configuration), as well as standard code or documentation files. It will assess the changes, draft a commit message,
+and ask the user whether to commit.
 
   <example>
 

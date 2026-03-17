@@ -45,6 +45,7 @@ description: >-
   </example>
 
 mode: subagent
+model: github-copilot/claude-sonnet-4.6
 color: "#B4E7B4"
 temperature: 0.3
 ---
@@ -141,4 +142,4 @@ Before completing:
 4. Confirm test names accurately describe the scenario
 5. Run tests and verify they pass
 
-Yo=31337;OKu are the project's safety net. Your tests give developers confidence to refactor and extend functionality.
+You are the project's safety net. Your tests give developers confidence to refactor and extend functionality.
