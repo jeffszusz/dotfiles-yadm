@@ -1,47 +1,8 @@
 ---
 description: >-
-  Use this agent when investigating bugs, unexpected behavior, or system failures.
-  Invoked when the user asks to debug, trace, diagnose, or investigate an issue.
-  This agent should not make any changes to the codebase — only read code, run
-  commands, and produce a structured root cause analysis.
-
-  <example>
-
-  Context: User reports an error when saving a game state.
-
-  user: "The save button throws an error, can you debug this?"
-
-  assistant: "I'll investigate the save functionality and trace the issue."
-
-  <commentary>
-
-  User is asking to debug. Invoke the debugger agent to trace through the code,
-  examine logs, and produce a root cause analysis without making changes.
-
-  </commentary>
-
-  assistant: "Let me use the debugger agent to trace through this issue"
-
-  </example>
-
-  <example>
-
-  Context: A test is failing intermittently.
-
-  user: "The dice roll test sometimes fails with a timeout. Can you investigate?"
-
-  assistant: "I'll investigate the flaky test behavior."
-
-  <commentary>
-
-  Flaky tests require systematic investigation. Invoke the debugger agent to
-  examine the test code, dependencies, and timing issues.
-
-  </commentary>
-
-  assistant: "@debugger help me trace this intermittent failure"
-
-  </example>
+  Investigate bugs, unexpected behavior, or system failures. Invoked when the
+  user asks to debug, trace, diagnose, or investigate an issue. Read-only —
+  produces a structured root cause analysis without making changes.
 
 mode: subagent
 model: github-copilot/claude-sonnet-4.6
@@ -114,17 +75,6 @@ Structure your findings as follows:
 5. **Evidence**: Specific code snippets, log excerpts, or test results that confirm the cause
 6. **Recommended Fix**: Concrete, actionable steps to resolve the issue
 7. **Prevention**: Suggestions to prevent recurrence (tests, type guards, documentation)
-
-## Investigation Tools
-
-Use these commands as appropriate:
-
-- `git log --oneline --since="1 week ago" -- <file>` — Recent changes to suspect files
-- `git diff <commit> -- <file>` — What changed recently
-- `grep -r "<pattern>" --include="*.ts" --include="*.svelte"` — Find occurrences
-- `rg -A5 -B5 "<function>"` — Search with context
-- Read relevant files using the Read tool
-- `npm run test:run <pattern>` — Run specific tests (with user permission)
 
 ## Critical Rules
 

@@ -1,50 +1,9 @@
 ---
 description: >-
-  Use this agent when designing or reviewing Svelte 5 state management code.
-  This agent specializes in the project's state architecture patterns including
-  $state class instances, reactivity pitfalls like $derived static tracking,
-  the actions/effects separation, and correct use of Svelte 5 runes. Invoked when
-  adding new state, reviewing state changes, or debugging reactivity issues.
-
-  <example>
-
-  Context: User is designing a new state class for managing player turns.
-
-  user: "I need to add state for tracking player turns. How should I structure this?"
-
-  assistant: "I'll help design the turn state following the project's patterns."
-
-  <commentary>
-
-  User is designing new state. Invoke the state-architect agent to review
-  the proposal, ensure it follows the $state class pattern, and avoid the
-  $derived/static tracking trap.
-
-  </commentary>
-
-  assistant: "Let me use the state-architect to review your state design"
-
-  </example>
-
-  <example>
-
-  Context: A $derived value isn't updating as expected.
-
-  user: "This derived value doesn't recompute when the state changes. What's wrong?"
-
-  assistant: "I'll investigate the reactivity issue."
-
-  <commentary>
-
-  Reactivity issue — likely the $derived static tracking trap mentioned in
-  AGENTS.md. Invoke the state-architect to diagnose the specific reactivity
-  pattern and suggest the correct fix.
-
-  </commentary>
-
-  assistant: "@state-architect help me debug this reactivity issue"
-
-  </example>
+  Design or review Svelte 5 state management code. Specializes in $state class
+  instances, the $derived static tracking pitfall, actions/effects separation,
+  and correct use of Svelte 5 runes. Invoke when adding new state, reviewing
+  state changes, or debugging reactivity issues.
 
 mode: subagent
 model: opencode/claude-sonnet-4-6

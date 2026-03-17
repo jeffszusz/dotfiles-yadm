@@ -1,53 +1,27 @@
 ---
 description: >-
-  Use this agent when adding tests for new functionality or when asked to
-  improve test coverage. This agent writes tests for logic-heavy code including
-  state management, actions, effects, utilities, and components. It follows
-  the project's testing conventions and uses TDD patterns where appropriate.
-
-  <example>
-
-  Context: The user just implemented a new card shuffling action.
-
-  user: "I just added the shuffleCard action. Can you write tests for it?"
-
-  assistant: "I'll write comprehensive tests for the new shuffle action."
-
-  <commentary>
-
-  User has completed new functionality and explicitly requests tests.
-  Invoke the test-writer agent to create tests following the project's patterns.
-
-  </commentary>
-
-  assistant: "Let me use the test-writer agent to create tests for the shuffleCard action"
-
-  </example>
-
-  <example>
-
-  Context: A new state class was added to manage clock timers.
-
-  user: "Here's the new clock state I built. How do I test this?"
-
-  assistant: "I'll create a test suite for the clock state following the project's patterns."
-
-  <commentary>
-
-  User has created new state and needs tests. Invoke the test-writer agent
-  to read the existing state pattern, understand the mocking strategy, and
-  write appropriate tests.
-
-  </commentary>
-
-  assistant: "@test-writer create tests for this clock state class"
-
-  </example>
+  Write tests for new functionality or improve test coverage. Covers state
+  management, actions, effects, utilities, and components. Follows the project's
+  testing conventions and uses TDD patterns where appropriate.
 
 mode: subagent
 model: github-copilot/claude-sonnet-4.6
 color: "#B4E7B4"
 temperature: 0.3
+permission:
+  bash:
+    "*": ask
+    "git *": allow
+    "grep *": allow
+    "rg *": allow
+    "find *": allow
+    "ls *": allow
+    "cat *": allow
+    "head *": allow
+    "tail *": allow
+    "npm run test:run *": ask
+    "npm test*": ask
+    "vitest*": ask
 ---
 delegating to @test-writer...
 

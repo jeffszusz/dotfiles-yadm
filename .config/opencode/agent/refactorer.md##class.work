@@ -1,53 +1,27 @@
 ---
 description: >-
-  Use this agent when refactoring or cleaning up code. This includes extracting
-  functions, improving names, eliminating duplication, simplifying complex logic,
-  and splitting large files. This agent preserves all behavior while improving
-  code structure and maintainability.
-
-  <example>
-
-  Context: User wants to clean up a large component file.
-
-  user: "This tabletop component is getting too big. Can you refactor it into
-  smaller pieces?"
-
-  assistant: "I'll refactor the component into smaller, focused pieces."
-
-  <commentary>
-
-  User explicitly asks for refactoring. Invoke the refactorer agent to
-  restructure the code while preserving behavior.
-
-  </commentary>
-
-  assistant: "Let me use the refactorer agent to split this into focused components"
-
-  </example>
-
-  <example>
-
-  Context: There's obvious duplication between two state actions.
-
-  user: "There's duplication between moveCard and flipCard. Can you clean this up?"
-
-  assistant: "I'll eliminate the duplication while keeping both actions working."
-
-  <commentary>
-
-  User identified duplication and asks to clean it up. Invoke the refactorer
-  to extract shared logic into a reusable helper.
-
-  </commentary>
-
-  assistant: "@refactorer extract the shared logic between these two actions"
-
-  </example>
+  Refactor or clean up code: extracting functions, improving names, eliminating
+  duplication, simplifying complex logic, and splitting large files. Preserves
+  all behavior while improving code structure and maintainability.
 
 mode: subagent
 model: github-copilot/claude-sonnet-4.6
 color: "#FFD8B1"
 temperature: 0.2
+permission:
+  bash:
+    "*": ask
+    "git *": allow
+    "grep *": allow
+    "rg *": allow
+    "find *": allow
+    "ls *": allow
+    "cat *": allow
+    "head *": allow
+    "tail *": allow
+    "npm run test:run *": ask
+    "npm test*": ask
+    "vitest*": ask
 ---
 delegating to @refactorer...
 
@@ -134,15 +108,6 @@ When choosing what to refactor:
 - **Bad names hurt**: Confusing names are a constant tax on cognition
 - **Dead weight**: Delete what's not used, but verify first
 - **Ask before major restructure**: Large architectural changes need discussion
-
-## Svelte/React Specific
-
-For Svelte components:
-
-- Extract reactive logic into `$derived` or functions
-- Split large components into smaller, focused ones
-- Move state management out of components when possible
-- Keep markup clean, move logic to script
 
 ## Self-Correction Protocol
 
