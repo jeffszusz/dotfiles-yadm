@@ -1,0 +1,24 @@
+return {
+  -- Inline AI completion via opencode serve (<C-l> to trigger)
+  {
+    "jaswdr/opencode-completion.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("opencode-completion").setup()
+    end,
+  },
+
+  -- Diff preview before opencode writes any file
+  -- Run :CodePreviewInstallOpenCodeHooks once per project to activate
+  {
+    "Cannon07/claude-preview.nvim",
+    config = function()
+      require("claude-preview").setup({
+        diff = {
+          layout = "tab",
+          auto_close = true,
+        },
+      })
+    end,
+  },
+}

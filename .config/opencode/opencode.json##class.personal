@@ -9,6 +9,9 @@
       }
     }
   },
+  "permission": {
+    "edit": "ask"
+  },
   "agent": {
     "plan": {
       "model": "opencode/claude-sonnet-4-6"

@@ -1,0 +1,15 @@
+return {
+  -- Diff preview before opencode writes any file
+  -- Run :CodePreviewInstallOpenCodeHooks once per project to activate
+  {
+    "Cannon07/claude-preview.nvim",
+    config = function()
+      require("claude-preview").setup({
+        diff = {
+          layout = "tab",
+          auto_close = true,
+        },
+      })
+    end,
+  },
+}
