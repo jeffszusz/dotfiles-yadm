@@ -15,9 +15,10 @@ This document contains the meta-configuration instructions for OpenCode custom a
   - The main body must clearly specify operating mode, permissions, limitations, and how to identify the agent.
 - **Anti-hallucination and trust protocols**:
   - Custom research or fact-checking agents must provide confidence tagging on all answers, explicitly mark unverified sections, and cite all sources when using webfetch.
+- **Project-level agents**: Some agents are project-specific and live in `.opencode/agents/` inside the project repo (not tracked by yadm). These have no `model:` in frontmatter (inherit from invoking agent) and no machine alternates. Current project-level agents: `state-architect` (Svelte/Folio VTT projects).
+
 - **Alternates tracking**:
   - Be sure this list always reflects the current set of agents with alternates (add new ones here):
-
     - `~/.config/opencode/opencode.json`
     - `~/.config/opencode/opencode.json##class.work`
     - `~/.config/opencode/opencode.json##class.personal`
@@ -33,8 +34,6 @@ This document contains the meta-configuration instructions for OpenCode custom a
     - `~/.config/opencode/agent/git-assistant.md##class.personal`
     - `~/.config/opencode/agent/refactorer.md##class.work`
     - `~/.config/opencode/agent/refactorer.md##class.personal`
-    - `~/.config/opencode/agent/state-architect.md##class.work`
-    - `~/.config/opencode/agent/state-architect.md##class.personal`
     - `~/.config/opencode/agent/researcher.md##class.work`
     - `~/.config/opencode/agent/researcher.md##class.personal`
     - `~/.config/opencode/agent/test-writer.md##class.work`

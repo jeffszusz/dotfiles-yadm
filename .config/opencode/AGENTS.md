@@ -54,7 +54,9 @@ Files that differ between machines use yadm's **alternates** system with a `##cl
 - When adding a new config file that needs to differ between machines, create both `##class.work` and `##class.personal` variants, add both to yadm, and run `yadm alt`.
 - Files that are identical across machines are tracked as plain files with no suffix.
 
-Current files using alternates: `~/.config/opencode/opencode.json` and the 10 agent files with per-machine model config (`code-reviewer.md`, `debugger.md`, `deep-thinker.md`, `docs-maintainer.md`, `git-assistant.md`, `refactorer.md`, `state-architect.md`, `researcher.md`, `test-writer.md`).
+Current files using alternates: `~/.config/opencode/opencode.json` and the 8 agent files with per-machine model config (`code-reviewer.md`, `debugger.md`, `deep-thinker.md`, `docs-maintainer.md`, `git-assistant.md`, `refactorer.md`, `researcher.md`, `test-writer.md`).
+
+Note: `state-architect` is a project-level agent living in each Svelte project's `.opencode/agents/state-architect.md` — it is not in the global config.
 
 ## Git Branching
 
