@@ -46,17 +46,7 @@ Primary languages are **TypeScript and JavaScript**. Python is acceptable when i
 
 ## Dotfiles
 
-Global configuration files (`~/.config/`, `~/.zshrc`, etc.) are managed with **yadm** — use `yadm` commands instead of plain `git` when working with dotfiles.
-
-Files that differ between machines use yadm's **alternates** system with a `##class.CLASSNAME` suffix. This machine has `local.class = work`. The personal laptop uses `local.class = personal`. After adding or modifying alternate files, run `yadm alt` to update symlinks.
-
-- When editing a config file that is a symlink, edit the `##class.work` variant directly rather than the symlink target.
-- When adding a new config file that needs to differ between machines, create both `##class.work` and `##class.personal` variants, add both to yadm, and run `yadm alt`.
-- Files that are identical across machines are tracked as plain files with no suffix.
-
-Current files using alternates: `~/.config/opencode/opencode.json` and the 8 agent files with per-machine model config (`code-reviewer.md`, `debugger.md`, `deep-thinker.md`, `docs-maintainer.md`, `git-assistant.md`, `refactorer.md`, `researcher.md`, `test-writer.md`).
-
-Note: `state-architect` is a project-level agent living in each Svelte project's `.opencode/agents/state-architect.md` — it is not in the global config.
+Global configuration files (`~/.config/`, `~/.zshrc`, etc.) are managed with **yadm** — use `yadm` commands instead of plain `git` when working with dotfiles. Load the `opencode-maintenance` skill for the full workflow when making agent, skill, or config changes.
 
 ## Git Branching
 

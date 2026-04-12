@@ -1,0 +1,187 @@
+---
+name: opencode-maintenance
+description: How to update agent definitions, skill files, AGENTS.md, and opencode config when new patterns, gotchas, or conventions are discovered. Covers the decision tree for where knowledge lives, yadm vs project git workflows, and skill and agent quality rules.
+---
+
+## Decision Tree: Where Does New Knowledge Go?
+
+When something new is learned about how to work on a project or with OpenCode, pick the right home before writing anything:
+
+| What you learned | Where it goes |
+|---|---|
+| Recurring gotcha or convention in a specific project | Project `AGENTS.md` (always in context) |
+| Extends an existing skill's domain (new attribute, new gotcha, corrected path) | Update that skill's `SKILL.md` |
+| New domain that doesn't fit any existing skill | Create a new skill |
+| Agent should behave differently across all projects | Global agent alternate in yadm (`~/.config/opencode/agent/`) |
+| Agent should behave differently in one project only | Project agent in `.opencode/agents/` in that repo |
+| OpenCode config change (model, MCP, permissions) | `opencode.json` alternate in yadm |
+| How-to workflow for maintaining OpenCode config | This skill |
+
+**Key distinction — AGENTS.md vs a skill:** `AGENTS.md` is always injected into every session in that project. Use it for short, always-relevant facts (naming conventions, state architecture summary, key file locations). Skills are loaded on demand. Use skills for deeper domain knowledge that only matters sometimes.
+
+**Key distinction — skill vs agent:** Skills inject domain knowledge. Agents enforce permission boundaries or use a different model. If the main value is "tell the agent how things work here", it's a skill. If the main value is "this task needs read-only access" or "this task needs a specific model", it's an agent.
+
+---
+
+## Yadm Workflow (Global Agents, Skills, Config)
+
+Global OpenCode config files live in `~/.config/opencode/` and are tracked by **yadm**, not git.
+
+### Plain files (identical across machines)
+
+No `##class` suffix. Add once, apply everywhere:
+
+```
+yadm add ~/.config/opencode/AGENTS.md
+yadm add ~/.config/opencode/AGENT_MAINTENANCE.md
+yadm add ~/.config/opencode/skills/my-skill/SKILL.md
+yadm commit -m "..."
+```
+
+### Alternate files (differ between machines)
+
+Use `##class.work` / `##class.personal` suffix. Both files must be created and added:
+
+```
+# Create both variants
+# Edit ~/.config/opencode/agent/my-agent.md##class.work
+# Edit ~/.config/opencode/agent/my-agent.md##class.personal
+
+yadm add ~/.config/opencode/agent/my-agent.md##class.work
+yadm add ~/.config/opencode/agent/my-agent.md##class.personal
+yadm alt        # creates the symlink (my-agent.md → ##class.work on this machine)
+yadm commit -m "..."
+```
+
+`yadm alt` must be run after adding or removing alternates — it updates the symlinks. The symlink itself is NOT tracked in yadm (it's derived).
+
+### When editing an existing alternate
+
+Edit the `##class.work` or `##class.personal` file directly, not the symlink:
+
+```
+# Wrong: editing the symlink
+vim ~/.config/opencode/agent/my-agent.md
+
+# Right: editing the variant
+vim ~/.config/opencode/agent/my-agent.md##class.work
+```
+
+### After any global agent change
+
+Update the alternates tracking list in `~/.config/opencode/AGENT_MAINTENANCE.md`.
+
+### Removing a global agent
+
+```
+yadm rm ~/.config/opencode/agent/my-agent.md##class.work
+yadm rm ~/.config/opencode/agent/my-agent.md##class.personal
+yadm alt        # removes the dangling symlink
+yadm commit -m "..."
+```
+
+If `yadm rm` fails with "local modifications", use `yadm rm -f` to force.
+
+After removal, manually delete any dangling symlink if `yadm alt` doesn't clean it up:
+```
+rm ~/.config/opencode/agent/my-agent.md
+```
+
+---
+
+## Project Git Workflow (Project Agents and Skills)
+
+Project-level agents and skills live inside the project repository and are committed with `git`, not `yadm`.
+
+```
+.opencode/
+  agents/
+    my-agent.md           ← project agent
+  skills/
+    my-skill/
+      SKILL.md            ← project skill
+  opencode.json           ← project OpenCode config (plugins, etc.)
+```
+
+```
+git add .opencode/agents/my-agent.md
+git add .opencode/skills/my-skill/SKILL.md
+git commit -m "chore(opencode): ..."
+```
+
+No `##class` alternates for project files — project config is per-project, not per-machine. If content needs to differ by machine, it belongs in the global config with yadm alternates instead.
+
+---
+
+## Skill Quality Rules
+
+**Name:** must exactly match the directory name containing `SKILL.md`. Lowercase alphanumeric with single hyphens. Must be unique across all skill locations (global and all projects).
+
+**Description:** the single most important field — it's what the agent reads to decide whether to load the skill. Ask: *"Would an agent doing X recognise this description as relevant and load it without being asked?"* If no, the description is too vague.
+
+- Good: `"How to configure CI/CD pipelines for this project, including environment variables, deployment targets, and rollback procedures."`
+- Bad: `"CI stuff"`
+
+Keep descriptions under ~200 characters. More detail goes in the skill body.
+
+**Body:** write for an agent that has never seen the codebase. Include:
+- Concrete file paths, not vague descriptions
+- Code examples for non-obvious patterns
+- Gotchas prominently — a gotcha that bit you once is worth more than three happy-path examples
+- A checklist where a sequence of steps must be followed
+
+**Staleness:** when a skill becomes outdated (paths changed, API renamed, pattern replaced), update it in the same session that discovers the mismatch. Don't leave contradictions between a skill and the actual codebase.
+
+---
+
+## Agent Quality Rules
+
+### Global agents (`~/.config/opencode/agent/`)
+
+- `mode: subagent` in frontmatter
+- `model:` in frontmatter — use `##class` alternates if it differs by machine
+- `color:` recommended — helps identify the agent in the UI
+- `temperature:` set explicitly — don't rely on model defaults
+- Body must start with `delegating to @agentname...` as the first line (identity announcement)
+- `permission:` block for bash — be explicit about what's `allow` vs `ask`
+- After any permission change: verify **both** `##class.work` and `##class.personal` are updated
+
+### Project agents (`.opencode/agents/`)
+
+- **No `model:`** in frontmatter — inherits from the invoking agent
+- **No `##class` alternates** — project agents are per-project, not per-machine
+- `mode: subagent`
+- Body still starts with `delegating to @agentname...`
+- Commit to the project repo, not yadm
+
+### Stale `appliesTo` field
+
+`appliesTo: '**'` is **not a real OpenCode frontmatter field** — remove it if seen in any agent file. It was added historically and has no effect.
+
+---
+
+## When to Propose vs Just Do
+
+**Just do it** (then mention what changed):
+- Adding a new gotcha to an existing skill
+- Correcting a file path or API name in a skill
+- Clarifying ambiguous wording in an agent prompt
+- Adding a new section to an existing skill for a pattern that fits its domain
+
+**Propose first** (describe the change and wait for approval):
+- Creating a new skill or agent
+- Deleting or renaming a skill or agent
+- Changing an agent's permission boundaries
+- Restructuring how knowledge is split across files
+- Any change that touches yadm-tracked files (confirm before `yadm commit`)
+
+---
+
+## Stale Content Discipline
+
+When new knowledge contradicts existing documentation:
+
+1. **Update the doc in the same session** — don't log "TODO: update this later"
+2. **Check for the same stale content in related files** — if a path changed, it may appear in multiple places
+3. **Check both yadm alternates** — when one alternate is updated, ask whether the other needs the same update
+4. For project `AGENTS.md`, update it as part of the same commit as the code that made it stale
