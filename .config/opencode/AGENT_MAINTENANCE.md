@@ -17,6 +17,8 @@ This document contains the meta-configuration instructions for OpenCode custom a
   - Custom research or fact-checking agents must provide confidence tagging on all answers, explicitly mark unverified sections, and cite all sources when using webfetch.
 - **Project-level agents**: Some agents are project-specific and live in `.opencode/agents/` inside the project repo (not tracked by yadm). These have no `model:` in frontmatter (inherit from invoking agent) and no machine alternates. Current project-level agents: `state-architect` (Svelte/Folio VTT projects).
 
+- **`test-writer` permission note**: `npm run test:run` (bare, no args) is set to `allow` so the test-writer can run the full test suite without interrupting for approval. Variants with arguments (`npm run test:run *`) remain `ask`.
+
 - **Alternates tracking**:
   - Be sure this list always reflects the current set of agents with alternates (add new ones here):
     - `~/.config/opencode/opencode.json`

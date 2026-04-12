@@ -19,6 +19,7 @@ permission:
     "cat *": allow
     "head *": allow
     "tail *": allow
+    "npm run test:run": allow
     "npm run test:run *": ask
     "npm test*": ask
     "vitest*": ask
