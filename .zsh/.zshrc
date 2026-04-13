@@ -1,6 +1,8 @@
 # bind up arrow for history search - must be before antitode loads plugins
 export ZSH_FZF_HISTORY_SEARCH_BIND="^[[A"
 
+zstyle ':omz:update' mode disabled
+
 # source antidote
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 
