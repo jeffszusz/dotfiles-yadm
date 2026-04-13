@@ -5,6 +5,16 @@
   "permission": {
     "edit": "ask"
   },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "@playwright/mcp@latest", "--headless"]
+    }
+  },
   "agent": {
     "plan": {
       "model": "github-copilot/claude-sonnet-4.6"
