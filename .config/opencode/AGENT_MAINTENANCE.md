@@ -26,3 +26,5 @@ Current files using yadm alternates. Keep this list up to date when adding or re
 - `~/.config/opencode/agent/researcher.md##class.personal`
 - `~/.config/opencode/agent/test-writer.md##class.work`
 - `~/.config/opencode/agent/test-writer.md##class.personal`
+- `~/.config/opencode/agent/ux-designer.md##class.work`
+- `~/.config/opencode/agent/ux-designer.md##class.personal`

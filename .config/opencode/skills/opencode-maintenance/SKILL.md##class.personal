@@ -194,9 +194,9 @@ This section describes the current state of OpenCode config on this machine (`lo
 
 ### Global agents (yadm, `~/.config/opencode/agent/`)
 
-8 agents, all with `##class.work` / `##class.personal` alternates (model ID is the only difference):
+9 agents, all with `##class.work` / `##class.personal` alternates (model ID is the only difference):
 
-`code-reviewer`, `debugger`, `deep-thinker`, `docs-maintainer`, `git-assistant`, `refactorer`, `researcher`, `test-writer`
+`code-reviewer`, `debugger`, `deep-thinker`, `docs-maintainer`, `git-assistant`, `refactorer`, `researcher`, `test-writer`, `ux-designer`
 
 See `~/.config/opencode/AGENT_MAINTENANCE.md` for the full alternates tracking list.
 
