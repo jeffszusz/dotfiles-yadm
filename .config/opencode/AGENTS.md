@@ -48,6 +48,16 @@ Primary languages are **TypeScript and JavaScript**. Python is acceptable when i
 
 Global configuration files (`~/.config/`, `~/.zshrc`, etc.) are managed with **yadm** — use `yadm` commands instead of plain `git` when working with dotfiles. Load the `opencode-maintenance` skill for the full workflow when making agent, skill, or config changes.
 
+## Global Skills
+
+Custom skills live in `~/.config/opencode/skills/`. Skills installed via the `npx skills` ecosystem CLI live in `~/.agents/skills/`.
+
+| Skill                       | Description                                                                           |
+| --------------------------- | ------------------------------------------------------------------------------------- |
+| `opencode-maintenance`      | How to update agents, skills, and OpenCode config; yadm workflow                      |
+| `find-skills`               | Discover and install skills from the `npx skills` ecosystem CLI (skills.sh)           |
+| `playwright-best-practices` | Comprehensive Playwright testing patterns — E2E, WebSocket, multi-user, drag-and-drop |
+
 ## Git Branching
 
 For small changes and early-stage projects, committing directly to `main` is fine. For large changes on mature projects, use feature branches. When in doubt, ask.
