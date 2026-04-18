@@ -215,7 +215,8 @@ Custom skills (hand-written) live in `~/.config/opencode/skills/` and are tracke
 |---|---|---|---|
 | `opencode-maintenance` | `~/.config/opencode/skills/` | Yes (`##class.work` / `##class.personal`) | This skill |
 | `find-skills` | `~/.agents/skills/` | No | Discover and install skills from the `npx skills` ecosystem CLI (skills.sh) |
-| `playwright-best-practices` | `~/.agents/skills/` | No | Comprehensive Playwright testing patterns — E2E, WebSocket, multi-user, drag-and-drop (both machines) |
+| `playwright-cli` | `~/.agents/skills/` | No | Microsoft Playwright CLI skill — test generation, session management, tracing, request mocking, video recording (both machines) |
+| `code-refactoring` | `~/.agents/skills/` | Yes (`##class.personal` only) | Supercent code refactoring patterns — Extract Method, DRY, polymorphism, parameter objects, SOLID. Personal only; repo unavailable via skills CLI, manually created from skills.sh content. |
 
 ### Active projects with project-level OpenCode config
 
