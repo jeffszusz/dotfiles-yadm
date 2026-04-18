@@ -1,0 +1,1 @@
+SKILL.md##class.personal
