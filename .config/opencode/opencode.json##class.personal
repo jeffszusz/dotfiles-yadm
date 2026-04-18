@@ -29,10 +29,6 @@
       "type": "remote",
       "url": "https://docs.mcp.cloudflare.com/mcp"
     },
-    "playwright": {
-      "type": "local",
-      "command": ["npx", "@playwright/mcp@latest", "--headless"]
-    }
   },
   "agent": {
     "plan": {
