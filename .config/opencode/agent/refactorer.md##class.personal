@@ -5,7 +5,6 @@ description: >-
   all behavior while improving code structure and maintainability.
 
 mode: subagent
-model: opencode/claude-sonnet-4-6
 color: "#FFD8B1"
 temperature: 0.2
 permission:

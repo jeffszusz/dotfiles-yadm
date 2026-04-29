@@ -3,7 +3,6 @@ description: >-
   Research and fact-check technical questions with confidence tagging and source
   citations. Can read and write markdown files for notes and research output.
 mode: subagent
-model: github-copilot/claude-sonnet-4.6
 color: "#B0C4DE"
 temperature: 0.2
 tools:

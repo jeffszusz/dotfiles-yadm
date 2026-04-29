@@ -5,7 +5,6 @@ description: >-
   testing conventions and uses TDD patterns where appropriate.
 
 mode: subagent
-model: github-copilot/claude-sonnet-4.6
 color: "#B4E7B4"
 temperature: 0.3
 permission:

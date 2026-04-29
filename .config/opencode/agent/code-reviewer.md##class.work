@@ -4,7 +4,6 @@ description: >-
   practices. Invoke after a logical chunk of code has been completed, not for
   full codebase reviews unless explicitly requested.
 mode: all
-model: github-copilot/claude-sonnet-4.6
 color: "#A7D7C5"
 temperature: 0.2
 tools:

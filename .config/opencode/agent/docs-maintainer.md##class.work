@@ -5,7 +5,6 @@ description: >-
   significant code changes, feature additions, or when documentation becomes
   outdated.
 mode: subagent
-model: github-copilot/claude-sonnet-4.6
 color: "#FFF4C1"
 permission:
   bash:

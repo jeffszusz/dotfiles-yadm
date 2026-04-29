@@ -4,7 +4,6 @@ description: >-
   (WCAG 2.2 AA), and visual design quality. Invoke after implementing new UI,
   designing interaction flows, or when a UI feels off but the issue isn't obvious.
 mode: subagent
-model: github-copilot/claude-sonnet-4.6
 color: "#E8D5F5"
 temperature: 0.3
 tools:
