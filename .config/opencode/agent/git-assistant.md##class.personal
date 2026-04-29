@@ -6,7 +6,7 @@ description: >-
   and ask the user whether to commit.
 
 mode: subagent
-model: opencode/claude-haiku-4-5
+model: opencode/ling-2.6-flash-free
 color: "#C3B1E1"
 temperature: 0.2
 tools:
