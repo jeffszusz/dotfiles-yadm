@@ -22,7 +22,8 @@ permission:
     "head *": allow
     "tail *": allow
     "npm test*": ask
-    "vitest*": ask
+    "npm run test:ui*": ask
+    "./gradlew *": ask
 ---
 delegating to @debugger...
 

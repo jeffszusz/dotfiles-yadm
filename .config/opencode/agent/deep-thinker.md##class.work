@@ -33,8 +33,8 @@ permission:
     "cat *": allow
     "head *": allow
     "tail *": allow
-    "npm run test:run *": ask
-    "vitest *": ask
+    "npm run test:ui*": ask
+    "./gradlew *": ask
 ---
 delegating to @deep-thinker...
 

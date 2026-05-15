@@ -18,9 +18,9 @@ permission:
     "cat *": allow
     "head *": allow
     "tail *": allow
-    "npm run test:run *": ask
+    "npm run test:ui*": ask
     "npm test*": ask
-    "vitest*": ask
+    "./gradlew *": ask
 ---
 delegating to @refactorer...
 

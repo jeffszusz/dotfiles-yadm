@@ -18,10 +18,9 @@ permission:
     "cat *": allow
     "head *": allow
     "tail *": allow
-    "npm run test:run": allow
-    "npm run test:run *": ask
+    "npm run test:ui*": ask
     "npm test*": ask
-    "vitest*": ask
+    "./gradlew *": ask
 ---
 delegating to @test-writer...
 
@@ -41,8 +40,8 @@ You are an expert test engineer specializing in unit and integration testing wit
 
 - Read the code to be tested and understand its behavior
 - Find existing test files to understand the project's patterns
-- Identify test framework (Vitest per AGENTS.md)
-- Understand state mocking patterns (vi.mock for save/load, beforeEach reset)
+- Identify test framework and spec file conventions from the project's AGENTS.md and loaded skills
+- Understand state mocking patterns from existing specs in the project
 
 ### Phase 2: Test Design
 
@@ -65,27 +64,11 @@ You are an expert test engineer specializing in unit and integration testing wit
 - Check that failures fail for the right reasons
 - Verify test independence (each can run alone)
 
-## Project-Specific Patterns (Sharpie)
+## Project-Specific Patterns
 
-Per AGENTS.md, follow these conventions:
-
-**State Testing**:
-
-- Mock save/load via `vi.mock('./gameActions', () => ({ save: vi.fn(), load: vi.fn() }))`
-- Reset state in `beforeEach`
-- Import state as a class instance (no stores, no `$` prefix)
-
-**Vitest**:
-
-- Tests live alongside source as `*.test.ts`
-- Config is in `vite.config.ts` under the `test` key
-- Run via `npm run test:run`
-
-**Component Testing**:
-
-- Test component behavior, not implementation details
-- Prefer testing user interactions over internal state
-- Use proper Svelte component mounting for tests
+Consult the project's AGENTS.md and any loaded skills for project-specific test conventions.
+Do not assume Vitest, Svelte, or any particular framework — check what the project actually uses
+before writing tests. Read existing spec files to understand the pattern before adding new ones.
 
 ## Output Format
 

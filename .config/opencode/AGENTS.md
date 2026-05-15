@@ -65,3 +65,21 @@ For small changes and early-stage projects, committing directly to `main` is fin
 ## Committing
 
 **Always ask for confirmation before creating a git commit.** Do not commit automatically, even after completing a task that feels complete. Present the proposed commit message and wait for explicit approval before running `git commit`.
+
+## Memory MCP Server
+
+A `memory` MCP server is available. Use it to persist facts that would genuinely change how
+you approach future work in a project — not as a session log.
+
+**Save to memory when you discover:**
+- Project-specific conventions not obvious from the codebase (e.g. "this team always X")
+- Architectural decisions made during a session and the reasoning behind them
+- Recurring gotchas or non-obvious constraints (e.g. "Grails 2.5.6 requires flush:true in tests")
+- Explicit user preferences stated during a session
+
+**Check memory proactively when:**
+- Starting work on a module or area you may have worked on before
+- The user references a past decision or pattern
+
+**Do not save:** transient state, file contents, task progress, or anything already captured
+in AGENTS.md or the codebase itself.
