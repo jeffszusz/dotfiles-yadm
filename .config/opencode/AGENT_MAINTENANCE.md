@@ -8,8 +8,8 @@ Current files using yadm alternates. Keep this list up to date when adding or re
 
 - `~/.config/opencode/opencode.json##class.work`
 - `~/.config/opencode/opencode.json##class.personal`
-- `~/.config/opencode/skills/opencode-maintenance/SKILL.md##class.work`
-- `~/.config/opencode/skills/opencode-maintenance/SKILL.md##class.personal`
+- `~/.agents/skills/opencode-maintenance/SKILL.md##class.work`
+- `~/.agents/skills/opencode-maintenance/SKILL.md##class.personal`
 - `~/.config/opencode/agent/code-reviewer.md##class.work`
 - `~/.config/opencode/agent/code-reviewer.md##class.personal`
 - `~/.config/opencode/agent/debugger.md##class.work`

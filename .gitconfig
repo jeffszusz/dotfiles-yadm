@@ -53,6 +53,7 @@
   spike = "!f() { echo "$1" | xargs -I {} git checkout -b spike/{}; }; f"
   hotfix = "!f() { echo "$1" | xargs -I {} git checkout -b hotfix/{}; }; f"
   skip = update-index --skip-worktree
+  unskip = update-index --no-skip-worktree
   skipped = "!git ls-files -v | grep '^S'"
   oops = "reset HEAD~"
   wipe = "reset --hard HEAD"
